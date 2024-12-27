@@ -6,4 +6,10 @@ export default defineNuxtConfig({
     'vuetify/styles',
     'bootstrap/dist/css/bootstrap.css',
   ],
+  serverHandlers: [
+    {
+      route: '/back',
+      handler: '~/server/middleware/proxy.js',
+    },
+  ]
 })

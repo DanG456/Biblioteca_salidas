@@ -8,14 +8,14 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-            <nuxt-link to="/pages/index.vue"><a class="nav-link active" aria-current="page" href="#">Home</a></nuxt-link>
+            <nuxt-link to="/"><a class="nav-link active" aria-current="page" href="#">Inicio</a></nuxt-link>
           
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <nuxt-link to="/login"><a class="nav-link" href="#">Iniciar sesión</a></nuxt-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">No se aun</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
