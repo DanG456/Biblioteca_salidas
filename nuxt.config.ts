@@ -6,10 +6,18 @@ export default defineNuxtConfig({
     'vuetify/styles',
     'bootstrap/dist/css/bootstrap.css',
   ],
-  serverHandlers: [
+  nitro: {
+    devProxy: {
+      '/back': {
+        target: 'http://localhost:5000',
+        changeOrigin: false
+      }
+    }
+  }
+  /*serverHandlers: [
     {
       route: '/back',
       handler: '~/server/middleware/proxy.js',
     },
-  ]
+  ]*/
 })
