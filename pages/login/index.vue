@@ -37,16 +37,15 @@ definePageMeta({
 export default {
   data(){
     return {
+      nuxt_backend_URL: 'http://localhost:5000',
       user_email: '',
-      user_password: '' 
+      user_password: ''
     }
   },
   methods:{
     async sendLoginInfo(user_email,user_password){
-      console.log('email: ', user_email)
-      console.log('pass: ',user_password)
       try{
-        const response = await $fetch('/back/login', {
+        const response = await $fetch(`${this.nuxt_backend_URL}/login`, {
         method: 'POST',
         body: {
           user_email: user_email,
