@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Pagina para login</h1>
+    <h1>Iniciar sesión</h1>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label"
         >Correo: </label
@@ -27,6 +27,8 @@
       </div>
     </div>
     <button type="button" class="btn btn-dark" id="submit-button" @click="sendLoginInfo(user_email,user_password)">Iniciar sesion</button>
+    <br>
+    <div><nuxt-link to="/create_account"><p id="create_account_link">¿No tienes cuenta? Crea una</p></nuxt-link></div>
   </div>
 </template>
 
@@ -37,7 +39,6 @@ definePageMeta({
 export default {
   data(){
     return {
-      nuxt_backend_URL: 'http://localhost:5000',
       user_email: '',
       user_password: ''
     }
@@ -45,14 +46,14 @@ export default {
   methods:{
     async sendLoginInfo(user_email,user_password){
       try{
-        const response = await $fetch(`${this.nuxt_backend_URL}/login`, {
+        const response = await $fetch(`${config.public.BACKEND_URL}/login`, {
         method: 'POST',
         body: {
           user_email: user_email,
           user_password: user_password
         }
       })
-      
+      console.log('response: ',response)
       }catch(error){
         console.log('Error con la solicitud: ',error)
       }
@@ -60,3 +61,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.create_account_link{
+  margin-top: 10px;
+}
+</style>
